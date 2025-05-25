@@ -32,8 +32,11 @@ index = faiss.IndexFlatIP(dim)
 
 # 카테고리 목록 및 임베딩 전역 변수로 선언
 CATEGORIES = [
-    "가사", "취미", "자기개발", "건강", "연애", "가족", "고정비", "친목",
-    "업무", "구입", "학교", "탈것 관리", "시험", "여행", "경제"
+    "가사", "취미", "휴식", "건강", "미용",
+    "차량 관리", "반려 동물", "가족", "연애", "친목",
+    "업무", "학업", "시험", "여행", "경제",
+    "출장", "구매", "예약", "정기 지출", "재무",
+    "세금", "봉사", "통화", "종교", "치료"
 ]
 CATEGORY_EMBS = model.encode(CATEGORIES, convert_to_numpy=True, normalize_embeddings=True)
 
@@ -86,8 +89,10 @@ def embed(s: Sentences):
 
         results.append({
             "original_text": original_text,
-            #"embedding": text_emb.tolist(),
+            "embedding": text_emb.tolist(),
             "categories": selected_categories
         })
 
     return {"results": results}
+
+print(embed(Sentences(texts=[ "엔진오일 교환", "민수랑 8시 술약속", "오전 10시 주간회의", "지윤이와 롯데몰 8시 데이트 약속", "가족들과 저녁식사", "민수랑 차량 정비"])))
