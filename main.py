@@ -22,7 +22,7 @@ ner_model.resize_token_embeddings(len(ner_tokenizer))
 NO_GENERALIZE_ENTITIES = ["CIVILIZATION"]
 
 app = FastAPI()
-model = SentenceTransformer('jhgan/ko-sroberta-multitask')
+model = SentenceTransformer('upskyy/e5-small-korean')
 emb_special_tokens = ner_special_tokens
 # special tokens 등록(tokenizer)
 model.tokenizer.add_special_tokens({"additional_special_tokens": emb_special_tokens})
