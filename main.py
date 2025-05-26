@@ -6,8 +6,8 @@ import faiss
 import numpy as np
 from transformers import AutoTokenizer, AutoModelForTokenClassification, pipeline
 
-ner_tokenizer = AutoTokenizer.from_pretrained("Leo97/KoELECTRA-small-v3-modu-ner")
-ner_model     = AutoModelForTokenClassification.from_pretrained("Leo97/KoELECTRA-small-v3-modu-ner")
+ner_tokenizer = AutoTokenizer.from_pretrained("yongsun-yoon/mdeberta-v3-base-open-ner")
+ner_model     = AutoModelForTokenClassification.from_pretrained("yongsun-yoon/mdeberta-v3-base-open-ner")
 ner_pipeline  = pipeline(
     "ner",
     model=ner_model,
